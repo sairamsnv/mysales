@@ -1,0 +1,97 @@
+date,sum of orders,name,iteam
+2019-01,4,Fabre Enterprises,RAK00001®
+2019-01,24,Fabre Enterprises,BBP00001
+2019-01,8,Smith Inc.,RAK00001®
+2019-01,24,Smith Inc.,BBP00001
+2019-01,7,Smith Inc. : Smith East,RAK00001®
+2019-01,16,Smith Inc. : Smith East,BBP00001
+2019-01,4,Smith Inc. : Smith West,RAK00001®
+2019-01,8,Smith Inc. : Smith West,BBP00001
+2019-02,6,Fabre Enterprises,RAK00001®
+2019-02,24,Fabre Enterprises,BBP00001
+2019-02,8,Smith Inc.,RAK00001®
+2019-02,24,Smith Inc.,BBP00001
+2019-02,9,Smith Inc. : Smith East,RAK00001®
+2019-02,16,Smith Inc. : Smith East,BBP00001
+2019-02,4,Smith Inc. : Smith West,RAK00001®
+2019-02,8,Smith Inc. : Smith West,BBP00001
+2019-03,8,Fabre Enterprises,RAK00001®
+2019-03,36,Fabre Enterprises,BBP00001
+2019-03,8,Smith Inc.,RAK00001®
+2019-03,36,Smith Inc.,BBP00001
+2019-03,11,Smith Inc. : Smith East,RAK00001®
+2019-03,24,Smith Inc. : Smith East,BBP00001
+2019-03,4,Smith Inc. : Smith West,RAK00001®
+2019-03,12,Smith Inc. : Smith West,BBP00001
+2019-04,7,Fabre Enterprises,RAK00001®
+2019-04,24,Fabre Enterprises,BBP00001
+2019-04,7,Smith Inc.,RAK00001®
+2019-04,27,Smith Inc.,BBP00001
+2019-04,8,Smith Inc. : Smith East,RAK00001®
+2019-04,16,Smith Inc. : Smith East,BBP00001
+2019-04,6,Smith Inc. : Smith West,RAK00001®
+2019-04,10,Smith Inc. : Smith West,BBP00001
+2019-05,10,Fabre Enterprises,RAK00001®
+2019-05,30,Fabre Enterprises,BBP00001
+2019-05,4,Smith Inc.,RAK00001®
+2019-05,35,Smith Inc.,BBP00001
+2019-05,9,Smith Inc. : Smith East,RAK00001®
+2019-05,14,Smith Inc. : Smith East,BBP00001
+2019-05,5,Smith Inc. : Smith West,RAK00001®
+2019-05,10,Smith Inc. : Smith West,BBP00001
+2019-06,6,Fabre Enterprises,RAK00001®
+2019-06,22,Fabre Enterprises,BBP00001
+2019-06,9,Smith Inc.,RAK00001®
+2019-06,20,Smith Inc.,BBP00001
+2019-06,10,Smith Inc. : Smith East,RAK00001®
+2019-06,12,Smith Inc. : Smith East,BBP00001
+2019-06,10,Smith Inc. : Smith West,RAK00001®
+2019-06,15,Smith Inc. : Smith West,BBP00001
+2019-07,4,Fabre Enterprises,RAK00001®
+2019-07,19,Fabre Enterprises,BBP00001
+2019-07,4,Smith Inc.,RAK00001®
+2019-07,24,Smith Inc.,BBP00001
+2019-07,14,Smith Inc. : Smith East,RAK00001®
+2019-07,18,Smith Inc. : Smith East,BBP00001
+2019-07,14,Smith Inc. : Smith West,RAK00001®
+2019-07,22,Smith Inc. : Smith West,BBP00001
+2019-08,8,Fabre Enterprises,RAK00001®
+2019-08,34,Fabre Enterprises,BBP00001
+2019-08,12,Smith Inc.,RAK00001®
+2019-08,25,Smith Inc.,BBP00001
+2019-08,8,Smith Inc. : Smith East,RAK00001®
+2019-08,12,Smith Inc. : Smith East,BBP00001
+2019-08,16,Smith Inc. : Smith West,RAK00001®
+2019-08,21,Smith Inc. : Smith West,BBP00001
+2019-09,12,Fabre Enterprises,RAK00001®
+2019-09,28,Fabre Enterprises,BBP00001
+2019-09,9,Smith Inc.,RAK00001®
+2019-09,29,Smith Inc.,BBP00001
+2019-09,8,Smith Inc. : Smith East,RAK00001®
+2019-09,11,Smith Inc. : Smith East,BBP00001
+2019-09,16,Smith Inc. : Smith West,RAK00001®
+2019-09,21,Smith Inc. : Smith West,BBP00001
+2019-10,12,Fabre Enterprises,RAK00001®
+2019-10,30,Fabre Enterprises,BBP00001
+2019-10,10,Smith Inc.,RAK00001®
+2019-10,21,Smith Inc.,BBP00001
+2019-10,10,Smith Inc. : Smith East,RAK00001®
+2019-10,11,Smith Inc. : Smith East,BBP00001
+2019-10,12,Smith Inc. : Smith West,RAK00001®
+2019-10,16,Smith Inc. : Smith West,BBP00001
+2019-11,11,Fabre Enterprises,RAK00001®
+2019-11,27,Fabre Enterprises,BBP00001
+2019-11,9,Smith Inc.,RAK00001®
+2019-11,21,Smith Inc.,BBP00001
+2019-11,12,Smith Inc. : Smith East,RAK00001®
+2019-11,11,Smith Inc. : Smith East,BBP00001
+2019-11,11,Smith Inc. : Smith West,RAK00001®
+2019-11,21,Smith Inc. : Smith West,BBP00001
+2019-12,7,Fabre Enterprises,RAK00001®
+2019-12,21,Fabre Enterprises,BBP00001
+2019-12,10,Smith Inc.,RAK00001®
+2019-12,16,Smith Inc.,BBP00001
+2019-12,12,Smith Inc. : Smith East,RAK00001®
+2019-12,6,Smith Inc. : Smith East,BBP00001
+2019-12,14,Smith Inc. : Smith West,RAK00001®
+2019-12,22,Smith Inc. : Smith West,BBP00001
