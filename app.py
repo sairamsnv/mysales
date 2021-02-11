@@ -1,85 +1,156 @@
-from flask import Flask,render_template,request,jsonify
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import statsmodels.api as sm
-import datetime
-df=pd.read_csv(r'https://raw.githubusercontent.com/sairamsnv/mysales/main/nsales.csv')
+from flask import Flask,render_template,request,make_response,session
+import pymongo
+import random
+from time import time
+from random import random
+import json
 
-import statsmodels.api as sm
-from pandas.tseries.offsets import DateOffset
+
+
 
 app=Flask(__name__)
+app.secret_key= "wikedcase"
 
+
+#Database
+
+client=pymongo.MongoClient('mongodb://127.0.0.1:27017/')
+db=client['login']
+mydata=db.information
+
+
+
+#database2
+client=pymongo.MongoClient('mongodb://127.0.0.1:27017/')
+db=client['iot']
+myvalue=db.values
+
+
+
+#login page
 @app.route('/',methods=['GET','POST'])
 
-
-
 def fun():
-    #results.predict('2023-01-01')
     return render_template('my.html')
 
-@app.route('/sai/',methods=['POST'])
+@app.route('/sai/',methods=['GET','POST'])
+def fun2():
+    session['name']=request.form['nam']
+    name=session['name']
+    password=request.form['pass']
+    cd='wrong email or password'
+    for record in mydata.find({'email':name,'password':password}):
+        if bool(record)==True:
+            return render_template('mainpage.html',si='{}'.format(name))    
+        
+    return render_template('my.html',ds='{}'.format(cd))
 
-def fun1():
-    path =request.form['exp']
-    val=request.form['cars']
-    cus=request.form['train']
-    #print(cus)
-    name=pd.get_dummies(df['name'])
-    x=df.drop('name',axis=1)
-    x=pd.concat([x,name],axis=1)
-    iteam=pd.get_dummies(x['iteam'])
-    y=x.drop('iteam',axis=1)
-    y=pd.concat([y,iteam],axis=1)
-    z=cus
-    c=val
-    if c=='RAK00001®' and z=='Smith East':
-        df_smio=(y.loc[y['Smith Inc. : Smith East'] & y['RAK00001®']==1])
-    elif c=='RAK00001®' and z=='Smith West':
-        df_smio=(y.loc[y['Smith Inc. : Smith West'] & y['RAK00001®']==1])
-    elif c=='RAK00001®' and z=='Fabre Enterprises':
-        df_smio=(y.loc[y['Fabre Enterprises'] & y['RAK00001®']==1])
-    elif c=='BBP00001' and z=='Fabre Enterprises':
-        df_smio=(y.loc[y['Fabre Enterprises'] & y['BBP00001']==1])
-    elif c=='RAK00001®' and z=='Smith Inc':
-        df_smio=(y.loc[y['Smith Inc.'] & y['RAK00001®']==1])
-    elif c=='BBP00001' and z=='Smith Inc':
-        df_smio=(y.loc[y['Smith Inc.'] & y['BBP00001']==1])
-    elif c=='BBP00001' and z=='Smith East':
-        df_smio=(y.loc[y['Smith Inc. : Smith East'] & y['BBP00001']==1])
-    elif c=='BBP00001' and z=='Smith West':
-        df_smio=(y.loc[y['Smith Inc. : Smith West'] & y['BBP00001']==1])
-    #else:
-       # mess="CHECK THE GIVEN FIELDS"
+#register form and saving to data base
+@app.route('/ram/',methods=['GET','POST'])
+def fun3():
+    return render_template('sign.html')
 
+@app.route('/snv/',methods=['GET','POST'])
+def fun4():
+   firstname=request.form['fir']
+   lastname=request.form['lst']
+   email=request.form['em']
+   password=request.form['pass']
+   vrpass=request.form['vpass']
+   per=request.form['opttick']
+   cpid=request.form['cid']
+   print(cpid)
+   dp='password unmatched'
+   if password==vrpass and per=='personal':
+        User={
+            'firstname':firstname,
+            'lastname':lastname,
+            'password':password,
+            'email':email,
+            }
+        mydata.insert_one(User)
+   elif password==vrpass and per=='bussiness':
+       User={
+            'firstname':firstname,
+            'lastname':lastname,
+            'password':password,
+            'email':email,
+            'company_id':cpid
+            }
+       mydata.insert_one(User)
 
-
-    
-    #else:
-        #df_smio=(y.loc[y['Smith Inc. : Smith East'] & y['BBP00001']==1])
-    
-    df_smith_order=df_smio.drop(['Smith Inc.','Smith Inc. : Smith West','Smith Inc. : Smith East','BBP00001','RAK00001®','Fabre Enterprises'],axis=1)
-    #print(df_smith_order)
-    df_smith_order['date']=pd.to_datetime(df_smith_order['date'])
-    df_smith_order.set_index('date',inplace=True)
-    import statsmodels.api as sm
-    model=sm.tsa.statespace.SARIMAX(df_smith_order,order=(1,1,1),seasonal_order=(1,1,1,12))
-    results=model.fit()
-    future_dates=[df_smith_order.index[-1]+ DateOffset(months=x)for x in range(0,24)]
-    future_df=pd.DataFrame(index=future_dates[1:],columns=df_smith_order.columns)
-    futuredata_df=pd.concat([df_smith_order,future_df])
-
-    
-    #sd=path.append('')
-    #print(sd)
-    predict=results.predict(path)
-    cgi=predict.values
-    tea=np.around(cgi) 
-    mys=' '.join(map(str, tea))
-    return render_template('index1.html',value='{}'.format(mys),sd='{}'.format(val),ds='{}'.format(cus))
+   else:
+       return render_template('sign.html',cc='{}'.format(dp))
+   
 
 
+   return render_template('my.html')
+@app.route('/graphs/',methods=['GET','POST'])
+def fun5():
+    return render_template('live.html')
+
+#this analytics graphs...
+@app.route('/live-data')
+def live_data():
+    # Create a PHP array and echo it as JSON
+    data = [time() * 1000,random() * 100]
+    response = make_response(json.dumps(data))
+    response.content_type = 'application/json'
+    return response
+
+#getting devices page ...
+@app.route('/getdev/',methods=['GET','POST'])
+def fun6():
+    return render_template('devices1.html')
+#this function  are device data....
+@app.route('/tees/',methods=['GET','POST'])
+def fun7():
+    if 'name' in session:
+        df=session['name']
+
+        fd='123432'
+        dg='B Series LTE CAT1/3G/2G'
+        sd='Tracking device'
+        return render_template('mainpage.html',cg='{}'.format(fd),kl='{}'.format(sd),fd='{}'.format(dg),si='{}'.format(df))
+
+@app.route('/tee/',methods=['GET','POST'])
+def fun8():
+    if 'name' in session:
+        df=session['name']
+        fd='123432'
+        dg='B Series LTE CAT1/3G/2G'
+        sd='Tracking device'
+        return render_template('mainpage.html',ss='{}'.format(fd),sss='{}'.format(sd),ssss='{}'.format(dg),si='{}'.format(df))
+
+
+
+@app.route('/act/',methods=['GET','POST'])
+def fun9():
+    tname=request.form['usr1']
+    tno=request.form['usr2']
+    lcap=request.form['usr3']
+    mload=request.form['usr4']
+    sensor1=request.form['op1']
+    User={
+            'truck name':tname,
+            'truck no':tno,
+            'load capicty':lcap,
+            'max load':mload,
+            'sensor1':sensor1,
+            }
+    myvalue.insert_one(User)
+    #sensor2=request.form['op2']
+   #sensor3=request.form['op3']
+    #sensor4=request.form['op4']
+    print(tname)
+    print(tno)
+    print(lcap)
+    print(mload)
+    print(sensor1)
+    #print(sensor2)
+    #print(sensor3)
+   # print(sensor4)
+    return render_template('mainpage.html')
 
 
 if __name__ == "__main__":
