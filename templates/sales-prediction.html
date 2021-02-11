@@ -8,14 +8,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<style>
-		@import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
+
+	  <style>
+		  @import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
 
 body{font-family: 'Didact Gothic', sans-serif;
-		background: #ddd;
-   
+background-image: url('https://system.na3.netsuite.com/c.4301600/suitebundle256789/WMS Mobile/v2.0/Images/background-image.png');
 }
-
 .w3_main_wrapper{width:100%; display:block;float:left;}
 .form_section .form-control{border: 1px solid #666262;}
 .form_section{
@@ -38,10 +37,12 @@ font-size: 26px;
 text-decoration: underline;
 }
 
-input[type=submit]{
-	background-color:rgb(4, 54, 19);
-	padding: 15px,15px;
-	color: whitesmoke;
+input[type=submit] {
+	background: none;
+	padding: 0px;
+	border: none;
+	width: auto !important;
+	color: #fff;
 
 }
 .wrapper {
@@ -58,8 +59,8 @@ font-size: 18px;
 font-family: sans-serif;
 text-decoration: none;
 color: #fff;
-background: #514040;
-border: 1px solid #333;
+background-color: #5f2423;
+border: 1px solid #5f2423;
 letter-spacing: 2px;
 text-align: center;
 position: relative;
@@ -189,32 +190,49 @@ display: inline !important;
 }
 .wrapper a {padding: 7px 56px;}
 }
-	</style>
+	  </style>
 
 </head>
+
 <body>
 <div class="container">
 	<div class="w3_main_wrapper">
-		<h3 class="title_h3">NetScore Sales Forecasting Tool</h3>  
+		<h3 class="title_h3">SALES PREDICTION ON SMITH_ORDER(NET SCORE)</h3>  
 			<div class="form_section">
-				<table class="table table-fixed" id="bin-transfer">
-					<thead class="thead-dark">
-						<tr>
-							<th scope="col" class="adjust">CUSTOMER</th>
-							<th scope="col" class="adjust">ITEM</th>
-							<th scope="col" class="adjust">Forecast Qty</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td scope="col" class="adjust">{{ds}}</th>
-							<td scope="col" class="adjust">{{sd}}</th>
-							<td scope="col" class="adjust">{{value}}</th>
-						</tr>
-						
-					</tbody>
-				</table>
+				<form action="/sai/" method="POST">
+				
+				<aside class="aside_w3">
+				 <label for="sel1">Select Customer</label>
+				  <select  class="form-control custom_sel" id="sel1">
+				  <option name="city" disabled="true" selected="">Please Select Customer</option>
+					
+					<option value="RAK00001®">RAK00001®</option>
+					<option value="BBP00001">BBP00001</option>
+				
+					
+					
+					
+				  </select>
+				</aside>
+				
+				<aside class="aside_w3" style="text-align:right;">
+				  <label for="">Select Date:</label>
+  <input type="date" id="birthday"  class="form-control custom_sel" name="exp">
+
+				</aside>
+				<div class="wrap_1">
+					<div class="wrapper">
+					<a target="_blank"><span><input type="submit" value="submit"></span></a>
+					
+					</div>
+				
+				
+				</form>
+				
+				
+				</div>
 			</div>
+		<marquee><p style="font-weight:bold; color:#000;letter-spacing:2px;">!!!....GIVE THE YEAR ....GET YOUR ORDERS...!!!!</p></marquee>
 	</div>  
 </div>  
 </body>
